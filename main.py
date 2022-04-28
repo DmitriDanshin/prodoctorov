@@ -88,7 +88,7 @@ class Writer:
         filename = f"{user['username']}"
 
         if os.path.exists(f"{self.directory_name}/{filename}.txt"):
-            created_at = os.path.getctime(f"{self.directory_name}/{filename}.txt")
+            created_at = os.path.getmtime(f"{self.directory_name}/{filename}.txt")
             created_at = datetime.strptime(time.ctime(created_at), "%a %b %d %H:%M:%S %Y")
             os.renames(f"{self.directory_name}/{filename}.txt",
                        f"{self.directory_name}/old_{filename}_{created_at.strftime('%Y-%m-%dT%H-%M')}.txt")
